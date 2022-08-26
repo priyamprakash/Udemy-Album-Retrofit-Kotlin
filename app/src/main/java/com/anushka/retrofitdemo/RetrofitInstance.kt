@@ -9,7 +9,9 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitInstance {
     companion object {
+//        BASE URL
         val BASE_URL: String = "https://jsonplaceholder.typicode.com"
+//        Logging interceptor
         val interceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY
         }
@@ -19,6 +21,7 @@ class RetrofitInstance {
                 .readTimeout(20,TimeUnit.SECONDS)
                 .writeTimeout(25,TimeUnit.SECONDS)
         }.build()
+//        Retrofit Instance
         fun getRetrofitInstance(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
